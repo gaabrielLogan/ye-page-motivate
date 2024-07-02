@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('background-music');
+
+    const playAudio = () => {
+        audio.play().catch(error => {
+            console.log('Reprodução automática bloqueada:', error);
+        });
+    };
+    
+    playAudio();
+
+    document.body.addEventListener('click', () => {
+        playAudio();
+    });
+
     const apiUrl = 'https://api.kanye.rest/';
     const quoteElement = document.getElementById('quote');
     const newQuoteButton = document.getElementById('new-quote');
